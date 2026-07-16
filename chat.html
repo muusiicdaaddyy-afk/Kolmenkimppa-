@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat - Kolmenkimppa.fi</title>
 
+<style>
+body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    background:#111;
+    color:#d4af37;
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.chat{
+    max-width:900px;
+    margin:20px auto;
+    padding:20px;
+}
+
+.message{
+    background:#222;
+    padding:15px;
+    border-radius:12px;
+    margin:10px 0;
+}
+
+.me{
+    background:#d4af37;
+    color:#000;
+}
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#111;
+    padding:15px;
+    display:flex;
+    gap:10px;
+    box-sizing:border-box;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+}
+
+button{
+    background:#d4af37;
+    color:#000;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>Chat</header>
+
+<div class="chat">
+
+<div class="message">
+Hei! Mitä kuuluu?
+</div>
+
+<div class="message me">
+Hei! Hyvin, entä sinulle?
+</div>
+
+</div>
+
+<div class="bottom">
+<input type="text" placeholder="Kirjoita viesti...">
+<button>Lähetä</button>
+</div>
+
+</body>
+</html>
