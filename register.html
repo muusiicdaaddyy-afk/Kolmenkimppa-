@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rekisteröidy - Kolmenkimppa.fi</title>
 
-<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 body{
@@ -27,7 +28,6 @@ body{
 h1{
     text-align:center;
     color:#d4af37;
-    margin-bottom:30px;
 }
 
 input, select{
@@ -49,55 +49,111 @@ button{
     border-radius:8px;
     font-size:18px;
     font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#f5d76e;
 }
 
 a{
     color:#d4af37;
-    text-decoration:none;
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
 <h1>Rekisteröidy</h1>
 
-<form>
+<form id="registerForm">
 
-<input type="text" placeholder="Käyttäjänimi" required>
+<input id="username" type="text" placeholder="Käyttäjänimi" required>
 
-<input type="email" placeholder="Sähköposti" required>
+<input id="email" type="email" placeholder="Sähköposti" required>
 
-<input type="password" placeholder="Salasana" required>
+<input id="password" type="password" placeholder="Salasana" required>
 
-<input type="number" placeholder="Ikä" required>
+<input id="age" type="number" placeholder="Ikä" required>
 
-<select required>
+<select id="gender" required>
 <option value="">Olen...</option>
 <option>Mies</option>
 <option>Nainen</option>
 <option>Pari</option>
 </select>
 
-<input type="text" placeholder="Kaupunki">
+<input id="city" type="text" placeholder="Kaupunki">
 
 <button type="submit">Luo tili</button>
 
 </form>
 
-<p style="text-align:center;margin-top:20px;">
+<p style="text-align:center">
 Onko sinulla jo tili?
 <a href="login.html">Kirjaudu tästä</a>
 </p>
 
 </div>
+
+
+<script>
+
+const SUPABASE_URL = "https://uakaszazuflqtdztxkxt.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_E9NRDvVv7X1N1phAgeeYUQ_l7uzu1El";
+
+const supabaseClient = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+document.getElementById("registerForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+
+const {data, error} = await supabaseClient.auth.signUp({
+email,
+password
+});
+
+
+if(error){
+alert(error.message);
+return;
+}
+
+
+const {error: profileError} = await supabaseClient
+.from("profiles")
+.insert([{
+username: document.getElementById("username").value,
+age: document.getElementById("age").value,
+gender: document.getElementById("gender").value,
+city: document.getElementById("city").value,
+id: data.user.id
+}]);
+
+
+if(profileError){
+alert(profileError.message);
+return;
+}
+
+
+alert("Tili luotu onnistuneesti!");
+
+window.location.href="login.html";
+
+
+});
+
+</script>
 
 </body>
 </html>
