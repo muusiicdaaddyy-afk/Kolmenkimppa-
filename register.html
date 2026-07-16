@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekisteröidy - Kolmenkimppa.fi</title>
 
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#000;
+    color:#fff;
+}
+
+.container{
+    max-width:450px;
+    margin:80px auto;
+    background:#111;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(212,175,55,.3);
+}
+
+h1{
+    text-align:center;
+    color:#d4af37;
+    margin-bottom:30px;
+}
+
+input, select{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#d4af37;
+    color:#000;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#f5d76e;
+}
+
+a{
+    color:#d4af37;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Rekisteröidy</h1>
+
+<form>
+
+<input type="text" placeholder="Käyttäjänimi" required>
+
+<input type="email" placeholder="Sähköposti" required>
+
+<input type="password" placeholder="Salasana" required>
+
+<input type="number" placeholder="Ikä" required>
+
+<select required>
+<option value="">Olen...</option>
+<option>Mies</option>
+<option>Nainen</option>
+<option>Pari</option>
+</select>
+
+<input type="text" placeholder="Kaupunki">
+
+<button type="submit">Luo tili</button>
+
+</form>
+
+<p style="text-align:center;margin-top:20px;">
+Onko sinulla jo tili?
+<a href="login.html">Kirjaudu tästä</a>
+</p>
+
+</div>
+
+</body>
+</html>
