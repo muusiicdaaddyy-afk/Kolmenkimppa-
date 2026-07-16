@@ -6,19 +6,40 @@
 
 <title>Kolmenkimppa.fi</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 body{
-  margin:0;
-  background:#000;
+    margin:0;
+    background:#000;
+}
+
+.container{
+    position:relative;
+    height:100vh;
 }
 
 img{
-  width:100%;
-  height:100vh;
-  object-fit:cover;
-  display:block;
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+}
+
+.buttons{
+    position:absolute;
+    bottom:40px;
+    width:100%;
+    text-align:center;
+}
+
+a{
+    display:inline-block;
+    margin:10px;
+    padding:15px 30px;
+    background:#d4af37;
+    color:#000;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:18px;
 }
 </style>
 
@@ -26,21 +47,19 @@ img{
 
 <body>
 
-<img src="images/6fff9475-a607-49da-93c5-98e0490e70ec.png" alt="Kolmenkimppa.fi">
+<div class="container">
 
+<img src="images/6fff9475-a607-49da-93c5-98e0490e70ec.png">
 
-<script>
+<div class="buttons">
 
-const SUPABASE_URL = "https://uakaszazuflqtdztxkxt.supabase.co";
+<a href="register.html">Rekisteröidy</a>
 
-const SUPABASE_KEY = "sb_publishable_E9NRDvVv7X1N1phAgeeYUQ_l7uzu1El";
+<a href="login.html">Kirjaudu</a>
 
-const supabaseClient = supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+</div>
 
-</script>
+</div>
 
 </body>
 </html>
