@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kirjaudu - Kolmenkimppa.fi</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 body{
@@ -25,7 +28,6 @@ body{
 h1{
     text-align:center;
     color:#d4af37;
-    margin-bottom:30px;
 }
 
 input{
@@ -35,7 +37,6 @@ input{
     border:none;
     border-radius:8px;
     box-sizing:border-box;
-    font-size:16px;
 }
 
 button{
@@ -47,42 +48,81 @@ button{
     border-radius:8px;
     font-size:18px;
     font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#f5d76e;
 }
 
 a{
     color:#d4af37;
-    text-decoration:none;
 }
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
 
 <h1>Kirjaudu</h1>
 
-<form>
+<form id="loginForm">
 
-<input type="email" placeholder="Sähköposti" required>
+<input id="email" type="email" placeholder="Sähköposti" required>
 
-<input type="password" placeholder="Salasana" required>
+<input id="password" type="password" placeholder="Salasana" required>
 
 <button type="submit">Kirjaudu</button>
 
 </form>
 
-<p style="text-align:center;margin-top:20px;">
+<p style="text-align:center">
 Ei vielä tiliä?
 <a href="register.html">Rekisteröidy tästä</a>
 </p>
 
 </div>
+
+
+<script>
+
+const SUPABASE_URL = "https://uakaszazuflqtdztxkxt.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_E9NRDvVv7X1N1phAgeeYUQ_l7uzu1El";
+
+const supabaseClient = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+document.getElementById("loginForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+
+const {data, error} = await supabaseClient.auth.signInWithPassword({
+email,
+password
+});
+
+
+if(error){
+alert(error.message);
+return;
+}
+
+
+alert("Kirjautuminen onnistui!");
+
+window.location.href="profile.html";
+
+
+});
+
+</script>
 
 </body>
 </html>
