@@ -1,5 +1,81 @@
-.hero {
-    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-                url("images/hero.webp") center center/cover no-repeat;
-    min-height: 100vh;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#000;
+color:#fff;
+}
+
+header{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 40px;
+z-index:10;
+}
+
+.logo{
+font-size:34px;
+font-weight:bold;
+color:#d4af37;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:18px;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url("images/hero.png");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.overlay{
+max-width:700px;
+padding:20px;
+}
+
+.overlay h1{
+font-size:64px;
+margin-bottom:20px;
+}
+
+.overlay p{
+font-size:24px;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+.button{
+display:inline-block;
+padding:18px 50px;
+background:#d4af37;
+color:black;
+font-weight:bold;
+font-size:22px;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+}
+
+.button:hover{
+background:#f5d76e;
 }
