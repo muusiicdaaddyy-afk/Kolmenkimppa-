@@ -9,123 +9,63 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-
-background:url("images/hero.png") center center/cover no-repeat;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
+    font-family:Arial,sans-serif;
+    background:url("6aac70de-1d00-4ab0-b0df-f6dd1058dd59.png") center center no-repeat;
+    background-size:cover;
+    height:100vh;
 }
 
 .overlay{
-
-width:100%;
-height:100vh;
-background:rgba(0,0,0,.35);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,.15);
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
 }
 
-.content{
-
-text-align:center;
-color:white;
-width:90%;
-max-width:500px;
-
-}
-
-.logo{
-
-font-size:60px;
-font-weight:bold;
-color:#d4af37;
-margin-bottom:10px;
-
-}
-
-.slogan{
-
-font-size:24px;
-letter-spacing:3px;
-margin-bottom:40px;
-
-}
-
-.price{
-
-font-size:26px;
-color:#d4af37;
-margin-bottom:10px;
-
-}
-
-.membership{
-
-font-size:18px;
-margin-bottom:40px;
-
+.buttons{
+    width:90%;
+    max-width:420px;
+    margin-bottom:40px;
 }
 
 .button{
-
-display:block;
-
-width:100%;
-
-padding:18px;
-
-margin:15px 0;
-
-background:#d4af37;
-
-color:#000;
-
-text-decoration:none;
-
-font-size:22px;
-
-font-weight:bold;
-
-border-radius:50px;
-
-transition:.3s;
-
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    padding:18px;
+    margin:15px 0;
+    border-radius:50px;
+    font-size:22px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-.button:hover{
-
-background:#f5d76e;
-
+.gold{
+    background:#d4af37;
+    color:#000;
 }
 
-.secondary{
-
-background:transparent;
-
-color:#fff;
-
-border:2px solid #d4af37;
-
+.gold:hover{
+    background:#f0c95d;
 }
 
-.secondary:hover{
+.black{
+    background:#111;
+    color:#fff;
+    border:2px solid #d4af37;
+}
 
-background:#d4af37;
-
-color:#000;
-
+.black:hover{
+    background:#d4af37;
+    color:#000;
 }
 
 </style>
@@ -136,48 +76,18 @@ color:#000;
 
 <div class="overlay">
 
-<div class="content">
+<div class="buttons">
 
-<div class="logo">
-
-KOLMENKIMPPA.FI
-
-</div>
-
-<div class="slogan">
-
-LÖYDÄ. KOHTAA. NAUTI.
-
-</div>
-
-<div class="membership">
-
-PREMIUM-JÄSENYYS
-
-</div>
-
-<div class="price">
-
-5,99 € / KK
-
-</div>
-
-<a class="button" href="register.html">
-
+<a class="button gold" href="register.html">
 LIITY NYT
-
 </a>
 
-<a class="button secondary" href="login.html">
-
+<a class="button black" href="login.html">
 KIRJAUDU
-
 </a>
 
-<a class="button secondary" href="register.html">
-
+<a class="button black" href="register.html">
 REKISTERÖIDY
-
 </a>
 
 </div>
@@ -185,5 +95,4 @@ REKISTERÖIDY
 </div>
 
 </body>
-
 </html>
