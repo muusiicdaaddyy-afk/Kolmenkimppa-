@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kolmenkimppa.fi</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -11,12 +12,6 @@
 body{
   margin:0;
   background:#000;
-  font-family:Arial, sans-serif;
-}
-
-.container{
-  position:relative;
-  height:100vh;
 }
 
 img{
@@ -25,45 +20,13 @@ img{
   object-fit:cover;
   display:block;
 }
-
-.buttons{
-  position:absolute;
-  bottom:60px;
-  width:100%;
-  text-align:center;
-}
-
-button{
-  background:#d4af37;
-  color:#000;
-  border:none;
-  padding:15px 35px;
-  margin:10px;
-  border-radius:30px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#f5d76e;
-}
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
-
 <img src="images/6fff9475-a607-49da-93c5-98e0490e70ec.png" alt="Kolmenkimppa.fi">
-
-<div class="buttons">
-<button onclick="register()">Rekisteröidy</button>
-<button onclick="login()">Kirjaudu</button>
-</div>
-
-</div>
 
 
 <script>
@@ -76,16 +39,6 @@ const supabaseClient = supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
-
-
-function register(){
-alert("Rekisteröinti avataan seuraavassa vaiheessa");
-}
-
-
-function login(){
-alert("Kirjautuminen avataan seuraavassa vaiheessa");
-}
 
 </script>
 
