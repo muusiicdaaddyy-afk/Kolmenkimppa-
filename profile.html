@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Oma profiili - Kolmenkimppa.fi</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 body{
@@ -29,7 +32,6 @@ body{
     border-radius:50%;
     border:4px solid #d4af37;
     object-fit:cover;
-    margin-bottom:20px;
 }
 
 h1{
@@ -60,21 +62,72 @@ h1{
 
 <div class="container">
 
-<img class="avatar" src="https://via.placeholder.com/180" alt="Profiilikuva">
+<img class="avatar" src="https://via.placeholder.com/180">
 
-<h1>Käyttäjänimi</h1>
+<h1 id="username">Ladataan...</h1>
 
 <div class="info">
-<p><strong>Ikä:</strong> 30</p>
-<p><strong>Sukupuoli:</strong> Mies</p>
-<p><strong>Kaupunki:</strong> Turku</p>
-<p><strong>Etsin:</strong> Paria</p>
-<p><strong>Esittely:</strong> Tähän tulee käyttäjän oma esittely.</p>
+
+<p><strong>Ikä:</strong> <span id="age"></span></p>
+
+<p><strong>Sukupuoli:</strong> <span id="gender"></span></p>
+
+<p><strong>Kaupunki:</strong> <span id="city"></span></p>
+
 </div>
 
 <a class="button" href="#">Muokkaa profiilia</a>
 
 </div>
+
+
+<script>
+
+const SUPABASE_URL = "https://uakaszazuflqtdztxkxt.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_E9NRDvVv7X1N1phAgeeYUQ_l7uzu1El";
+
+const supabaseClient = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+async function loadProfile(){
+
+const {data:{user}} = await supabaseClient.auth.getUser();
+
+
+if(!user){
+window.location.href="login.html";
+return;
+}
+
+
+const {data, error} = await supabaseClient
+.from("profiles")
+.select("*")
+.eq("id", user.id)
+.single();
+
+
+if(error){
+alert(error.message);
+return;
+}
+
+
+document.getElementById("username").innerHTML = data.username;
+document.getElementById("age").innerHTML = data.age;
+document.getElementById("gender").innerHTML = data.gender;
+document.getElementById("city").innerHTML = data.city;
+
+}
+
+
+loadProfile();
+
+</script>
 
 </body>
 </html>
