@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kolmenkimppa.fi</title>
+<title>Kolmenkimppa.fi – Tulossa pian</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -17,169 +16,83 @@
 html,body{
     width:100%;
     height:100%;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
-    background:#000;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.hero{
-    position:relative;
-    width:100%;
-    height:100vh;
+body{
+    background:url("f0372359-7167-43b2-bc6a-2ec7c3cb9d8f.png") center center/cover no-repeat;
 }
 
-.hero img{
+.overlay{
     width:100%;
     height:100%;
-    object-fit:cover;
-    object-position:center;
-}
-
-.overlay{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:30px;
+    background:rgba(0,0,0,0.45);
     display:flex;
     justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
-.buttons{
-    width:90%;
-    max-width:420px;
+.content{
+    max-width:600px;
+}
+
+h1{
+    color:#d4af37;
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+h2{
+    color:#ffffff;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+p{
+    color:#ffffff;
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:40px;
 }
 
 .btn{
-    display:block;
-    text-decoration:none;
-    text-align:center;
-    padding:18px;
-    margin:15px 0;
-    border-radius:50px;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.register{
+    display:inline-block;
+    padding:18px 40px;
     background:#d4af37;
     color:#000;
-}
-
-.login{
-    background:#111;
-    color:#fff;
-    border:2px solid #d4af37;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="hero">
-
-<img src="f0372359-7167-43b2-bc6a-2ec7c3cb9d8f.png" alt="Kolmenkimppa">
-
-<div class="overlay">
-
-<div class="buttons">
-
-<a class="btn register" href="register.html">
-REKISTERÖIDY
-</a>
-
-<a class="btn login" href="login.html">
-KIRJAUDU
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
-</html>
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.15);
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    flex-direction:column;
-    padding-bottom:35px;
-}
-
-.buttons{
-    width:90%;
-    max-width:420px;
-}
-
-.btn{
-    display:block;
     text-decoration:none;
-    text-align:center;
-    padding:18px;
-    margin:15px 0;
-    border-radius:50px;
     font-size:22px;
     font-weight:bold;
+    border-radius:50px;
     transition:.3s;
 }
 
-.gold{
-    background:#d4af37;
-    color:#000;
+.btn:hover{
+    background:#f2cf5b;
 }
-
-.dark{
-    background:#111;
-    color:#fff;
-    border:2px solid #d4af37;
-}
-
-.gold:hover{
-    background:#f2cf63;
-}
-
-.dark:hover{
-    background:#d4af37;
-    color:#000;
-}
-
 </style>
 
 </head>
 
 <body>
 
-<div class="hero">
-
-<img src="6aac70de-1d00-4ab0-b0df-f6dd1058dd59.png" alt="Kolmenkimppa">
-
 <div class="overlay">
+    <div class="content">
 
-<div class="buttons">
+        <h1>Kolmenkimppa.fi</h1>
 
-<a class="btn gold" href="register.html">
-LIITY NYT
-</a>
+        <h2>Tulossa pian</h2>
 
-<a class="btn dark" href="login.html">
-KIRJAUDU
-</a>
+        <p>
+            Suomen uusi kohtaamispaikka aikuisille.<br>
+            Rakennamme turvallista ja modernia palvelua.
+        </p>
 
-<a class="btn dark" href="register.html">
-REKISTERÖIDY
-</a>
+        <a class="btn" href="#">Liity odotuslistalle</a>
 
-</div>
-
-</div>
-
+    </div>
 </div>
 
 </body>
