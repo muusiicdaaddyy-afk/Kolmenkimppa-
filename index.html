@@ -25,14 +25,10 @@ html,body{
 .hero{
     width:100%;
     height:100vh;
-
     background-image:url("34163576-aee5-45f8-9cbc-9319e14e5e00.png");
     background-repeat:no-repeat;
     background-position:center center;
-
-    /* MUUDA SEDA NUMBRIT VAJADUSEL */
     background-size:85%;
-
     background-color:#000;
     position:relative;
 }
@@ -44,6 +40,7 @@ html,body{
     bottom:40px;
     text-align:center;
     padding:20px;
+    background:rgba(0,0,0,0.15);
 }
 
 h2{
@@ -60,22 +57,60 @@ p{
     text-shadow:0 0 8px #000;
 }
 
-.btn{
-    display:inline-block;
-    padding:18px 45px;
-    background:#d4af37;
-    color:#000;
-    text-decoration:none;
-    border-radius:50px;
-    font-size:22px;
-    font-weight:bold;
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
 }
 
-@media (max-width:768px){
+.btn{
+    display:inline-block;
+    padding:16px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.login{
+    background:transparent;
+    border:2px solid #d4af37;
+    color:#fff;
+}
+
+.login:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+.register{
+    background:#d4af37;
+    color:#000;
+}
+
+.register:hover{
+    background:#f0c84a;
+}
+
+.waitlist{
+    display:inline-block;
+    margin-top:10px;
+    color:#d4af37;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.waitlist:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:768px){
 
 .hero{
     background-size:95%;
-    background-position:center center;
 }
 
 h2{
@@ -86,16 +121,21 @@ p{
     font-size:18px;
 }
 
+.buttons{
+    flex-direction:column;
+    align-items:center;
+}
+
 .btn{
     width:90%;
     max-width:340px;
-    padding:16px 0;
-    font-size:20px;
+    text-align:center;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -103,9 +143,18 @@ p{
 <div class="hero">
 
     <div class="overlay">
+
         <h2>Tulossa pian</h2>
+
         <p>Suomen uusi kohtaamispaikka aikuisille.</p>
-        <a href="#" class="btn">Liity odotuslistalle</a>
+
+        <div class="buttons">
+            <a href="login.html" class="btn login">Kirjaudu</a>
+            <a href="register.html" class="btn register">Rekisteröidy</a>
+        </div>
+
+        <a href="#" class="waitlist">Liity odotuslistalle</a>
+
     </div>
 
 </div>
