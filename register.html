@@ -49,13 +49,14 @@ button{
     border-radius:8px;
     font-size:18px;
     font-weight:bold;
+    cursor:pointer;
 }
 
 a{
     color:#d4af37;
 }
-
 </style>
+
 </head>
 
 <body>
@@ -94,7 +95,6 @@ Onko sinulla jo tili?
 
 </div>
 
-
 <script>
 
 const SUPABASE_URL = "https://uakaszazuflqtdztxkxt.supabase.co";
@@ -106,50 +106,46 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-
 document.getElementById("registerForm")
 .addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
-
-
-const {data, error} = await supabaseClient.auth.signUp({
-email,
-password
+    const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password
 });
 
-
-if(error){
-alert(error.message);
-return;
+if (error) {
+    alert(error.message);
+    return;
 }
 
+if (!data.user) {
+    alert("Käyttäjän luonti onnistui, mutta käyttäjätietoja ei saatu.");
+    return;
+}
 
-const {error: profileError} = await supabaseClient
+const { error: profileError } = await supabaseClient
 .from("profiles")
 .insert([{
-username: document.getElementById("username").value,
-age: document.getElementById("age").value,
-gender: document.getElementById("gender").value,
-city: document.getElementById("city").value,
-id: data.user.id
+    id: data.user.id,
+    username: document.getElementById("username").value,
+    age: Number(document.getElementById("age").value),
+    gender: document.getElementById("gender").value,
+    city: document.getElementById("city").value
 }]);
 
-
-if(profileError){
-alert(profileError.message);
-return;
+if (profileError) {
+    alert(profileError.message);
+    return;
 }
-
 
 alert("Tili luotu onnistuneesti!");
 
-window.location.href="login.html";
-
+window.location.href = "login.html";
 
 });
 
